@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>My Timer</title>
+<script src="jquery-1.10.1.js"></script>
+<script src="script2.js"></script>
+<link rel="stylesheet" type="text/css" href="styles.css">
+
+<!--<script>
+$(".d1").on("click", function(){
+alert('You picked display 1');
+});
+</script>-->
+</head>
+
+<body>
+<div id="wrapper">
+<div class="container">
+    <h1>My Timer</h1>
+    <form id="timer" onSubmit="return getTime();">
+    	<input type="number" name="Mintues" id="mNumber">Minutes <br >
+        <input type="number" name="Seconds" id="sNumber">Seconds <br >
+        <input type="submit" name="Submit" value="Submit" class="btn">
+    </form>
+    <!--
+	<form id="noiseList">
+    	<input type="radio" name="Sound 1" value="sound1">Sound 1<br >
+        <input type="radio" name="Sound 2" value="sound2">Sound 2<br >
+        <input type="radio" name="Sound 3" value="sound3">Sound 3<br >	
+    </form>-->
+    <form id="displayList">
+    	<input type="radio" name="Display 1" value="display1"  class="d1">Display 1<br >
+        <input type="radio" name="Display 2" value="display2"  class="dislay2">Display 2<br >
+        <input type="radio" name="Display 3" value="display3" class="display3">Dispay 3<br >	
+    </form>
+    <div id="timer">
+    </div>
+    </div>
+ </div>   
+</body>
+</html>
