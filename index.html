@@ -5,7 +5,18 @@
 <title>My Timer</title>
 <script src="jquery-1.10.1.js"></script>
 <script src="script2.js"></script>
+<link href='http://fonts.googleapis.com/css?family=Fresca' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Denk+One' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Happy+Monkey' rel='stylesheet' type='text/css'>
 <link rel="stylesheet" type="text/css" href="styles.css">
+<script>
+function PlaySound(soundObj) {
+  var sound = document.getElementById(soundObj);
+  sound.Play();
+}
+</script>
+<embed src="midnight-ride.mp3" autostart="false" width="0" height="0" id="sound1" nam="mysound"
+enablejavascript="true">
 
 <!--<script>
 $(".d1").on("click", function(){
@@ -15,28 +26,28 @@ alert('You picked display 1');
 </head>
 
 <body>
-<div id="wrapper">
-<div class="container">
-    <h1>My Timer</h1>
-    <form id="timer" onSubmit="return getTime();">
-    	<input type="number" name="Mintues" id="mNumber">Minutes <br >
-        <input type="number" name="Seconds" id="sNumber">Seconds <br >
-        <input type="submit" name="Submit" value="Submit" class="btn">
-    </form>
-    <!--
-	<form id="noiseList">
-    	<input type="radio" name="Sound 1" value="sound1">Sound 1<br >
-        <input type="radio" name="Sound 2" value="sound2">Sound 2<br >
-        <input type="radio" name="Sound 3" value="sound3">Sound 3<br >	
-    </form>-->
-    <form id="displayList">
-    	<input type="radio" name="Display 1" value="display1"  class="d1">Display 1<br >
-        <input type="radio" name="Display 2" value="display2"  class="dislay2">Display 2<br >
-        <input type="radio" name="Display 3" value="display3" class="display3">Dispay 3<br >	
-    </form>
-    <div id="timer">
+    <div class="container">
+		<h1>My Timer</h1>
+    	<form id="timer" onSubmit="return getTime();">
+    		<input type="number" name="Mintues" id="mNumber">Minutes <br >
+        	<input type="number" name="Seconds" id="sNumber">Seconds <br >
+        	<input type="submit" name="Submit" value="Submit" class="btn">
+            <input type="button" name="Stop" value="Stop" class="stop" onClick="stopSound();">
+    	</form>
+    	<!--
+		<form id="noiseList">
+    		<input type="radio" name="Sound 1" value="sound1">Sound 1<br >
+        	<input type="radio" name="Sound 2" value="sound2">Sound 2<br >
+        	<input type="radio" name="Sound 3" value="sound3">Sound 3<br >	
+    	</form>-->
+        <hr >
+    	<form id="displayList">
+    		<input type="radio" name="Display 1" value="display1"  class="d1">Display 1<br >
+        	<input type="radio" name="Display 2" value="display2"  class="dislay2">Display 2<br >
+        	<input type="radio" name="Display 3" value="display3"  class="dislay3">Display 3<br >	
+    	</form>
+    	<div id="timer">
     </div>
-    </div>
- </div>   
+    </div>  
 </body>
 </html>

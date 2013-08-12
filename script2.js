@@ -9,6 +9,7 @@ $(document).ready(function() {
 	
 	 $("form").on("submit", function(event) {
      event.preventDefault();
+	 $('.container').append(html);
 });
 
 /*$("div.test").on({
@@ -19,23 +20,25 @@ $(document).ready(function() {
 });*/
 
 $(".d1").on("click", function(){
-$( ".container" ).addClass( ".display1")
+$( ".body" ).addClass( ".display1")
 });
 
 	
 });
 
 var time;
+var minutes;
+var seconds;
 
-var html = '<div>Your Time</div>'; 
-    
+var html = '<div>Your Time is set for ' + time +'</div>'; 
+ 		/*   
         html +='<div>';
-		//html += time;
+		html += time;
 		html += getTime();
 		html += '</div>';
+    	*/
     
-    
-    
+   
 
 function getTime() {
 	var minutes = $('#mNumber').val() * 10000;
@@ -43,9 +46,47 @@ function getTime() {
 	var time = minutes + seconds;
 	//alert('Your timer is set for ' + time);
 	//console.log(time);
-	//return '<p class="timer">' + time + '</p>';
-	//$('.container').append(getTime()); 
-	$('.container').append(html);
+	return time;
 }
 
-s
+UpdateTimer() 
+window.setTimeout("Tick()", 1000);
+
+
+function Tick() {
+Time -= 1;
+UpdateTimer()
+window.setTimeout("Tick()", 1000);
+}
+
+function UpdateTimer() {
+$('.container').append(html);
+}
+
+//PLAYS SOUND WHEN TIME IS UP
+function Tick() {
+if (time <= 0) {
+PlaySound("sound1");
+//alert("Time's up!")
+return;
+}
+
+time -= 1;
+UpdateTimer()
+window.setTimeout("Tick()", 1000);
+}
+
+/*
+TO STOP SOUND
+function stopSound (){
+	document.mysound.stop();
+}
+
+$('.stop').on('click', function(){
+		//console.log('You just clicked #clickme!');
+		// do some other stuff here
+		stopSound("sound1");
+	return;
+	});
+	*/
+	
