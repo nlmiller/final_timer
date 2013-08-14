@@ -1,0 +1,46 @@
+@charset "UTF-8";
+/* CSS Document */
+
+
+body {
+    background-image:url(black.jpeg);
+	background-size:cover;
+	font-family: 'Denk One', sans-serif;
+    background-color:#000000;
+	
+}
+
+.container {
+	background-color:#FFF;
+	width:300px;
+	margin:0 auto;
+	padding:20px;
+}
+
+h2 {
+	text-align:center;
+}
+
+.timer {
+	background-color:#666666;
+}
+
+.display1 {
+	background-image:url(images/black.jpeg);
+	background-size:cover;
+	font-family: 'Denk One', sans-serif;
+}
+
+.display2 {
+	background-image:url(images/blue.jpg);
+	background-size:cover;
+	background-repeat:no-repeat;
+	font-family: 'Happy Monkey', cursive;
+}
+
+.display3 {
+	font-family: 'Fresca', sans-serif;
+	background-image:url(images/orange.jpeg);
+	background-size:cover;
+	background-repeat:no-repeat;
+}

@@ -7,7 +7,7 @@ $(document).ready(function() {
 	 $('.container').append(html);
 
 $( "#black" ).click(function() {
-alert( "Handler for .click() called." );
+$(this).css('background-color', 'green')
 });
 
 
@@ -25,15 +25,13 @@ $( ".body" ).addClass( ".display1")
 	
 });
 
-$('#black').click(function(){
-        $(this).css('background-color', 'green')
-      })
 
-var time = 10;
+var time;
 var minutes;
 var seconds;
+var count = time;
 
-var html = time-- + '<br >';
+var html = time;
 
 $('#timer').append(html); 
  		
@@ -51,11 +49,11 @@ $('#timer').append(html);
 var result = time--;
 $('.container').append(result);
 
-var count = 10;
+/*var count = 10;
 while (count>0) {
     console.log(count);
     count--;
-}
+}*/
 
 /* 
 while (count < 100);
@@ -78,10 +76,21 @@ function Tick() {
 Time -= 1;
 UpdateTimer()
 window.setTimeout("Tick()", 1000);
+while (time>0) {
+    //$('.container').append(time);
+	console.log(time);
+    time--;
+}
 $('.container').append(html);
 }
 
 function UpdateTimer() {
+var count = time;
+/*while (time>0) {
+    $('.container').append(time);
+	//console.log(time);
+    time--;
+}*/
 $('.container').append(html);
 }
 

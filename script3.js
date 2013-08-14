@@ -1,4 +1,20 @@
+// JavaScript Document
 
+$(document).ready(function() {
+    $("#calc").click(function(){
+        getTime();
+    });
+    function getTime() {
+        var minutes, seconds, time;
+        minutes = (parseInt( $('#mNumber').val(), 10) || 0) * 10000;
+        seconds = (parseInt( $('#sNumber').val(), 10) || 0) * 1000;
+        time = minutes + seconds;
+        document.getElementById("timer").innerHTML = time;
+        return false;
+    }
+    
+	//NEW CODE
+	
 
 var Timer;
 var TotalSeconds;
@@ -6,7 +22,7 @@ var TotalSeconds;
 
 function CreateTimer(TimerID, Time) {
 Timer = document.getElementById(TimerID);
-TotalSeconds = Time;
+TotalSeconds = time;
 
 UpdateTimer()
 window.setTimeout("Tick()", 1000);
@@ -32,23 +48,19 @@ TotalSeconds -= 1;
 UpdateTimer()
 window.setTimeout("Tick()", 1000);
 }
+ 
+//END NEW CODE
 
-
+});
 
 function UpdateTimer() {
 var Seconds = TotalSeconds;
-
-var Days = Math.floor(Seconds / 86400);
-Seconds -= Days * 86400;
-
-var Hours = Math.floor(Seconds / 3600);
-Seconds -= Hours * (3600);
 
 var Minutes = Math.floor(Seconds / 60);
 Seconds -= Minutes * (60);
 
 
-var TimeStr = ((Days > 0) ? Days + " days " : "") + LeadingZero(Hours) + ":" + LeadingZero(Minutes) + ":" + LeadingZero(Seconds)
+var TimeStr = ((Days > 0) ? Days + " days " : "") + LeadingZero(Minutes) + ":" + LeadingZero(Seconds)
 
 
 Timer.innerHTML = TimeStr;
@@ -60,5 +72,3 @@ function LeadingZero(Time) {
 return (Time < 10) ? "0" + Time : + Time;
 
 }
-
-http://forum.codecall.net/topic/51639-how-to-create-a-countdown-timer-in-javascript/
