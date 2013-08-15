@@ -4,71 +4,72 @@ $(document).ready(function() {
     $("#calc").click(function(){
         getTime();
     });
-    function getTime() {
+    var time= function getTime() {
         var minutes, seconds, time;
-        minutes = (parseInt( $('#mNumber').val(), 10) || 0) * 10000;
-        seconds = (parseInt( $('#sNumber').val(), 10) || 0) * 1000;
+        minutes = (parseInt( $('#mNumber').val(), 10) || 0) * 60;
+        seconds = (parseInt( $('#sNumber').val(), 10) || 0);
         time = minutes + seconds;
-        document.getElementById("timer").innerHTML = time;
-        return false;
-    }
+        return time;
+    };
     
-	//NEW CODE
-	
+$('#timer').html(time);
 
-var Timer;
-var TotalSeconds;
+Tick(time);
 
-
-function CreateTimer(TimerID, Time) {
-Timer = document.getElementById(TimerID);
-TotalSeconds = time;
-
-UpdateTimer()
-window.setTimeout("Tick()", 1000);
+function Tick(time) {
+	if (time > 0) {
+		setTimeout(function () {
+			$('#timer').html(time);
+			t--;
+			Tick(time);
+		}
+		); //1000; 
+    } else {
+		//PlaySound("sound1");
+	}
 }
-
-function Tick() {
-TotalSeconds -= 1;
-UpdateTimer()
-window.setTimeout("Tick()", 1000);
-}
-
-function UpdateTimer() {
-Timer.innerHTML = TotalSeconds;
-}
-
-function Tick() {
-if (TotalSeconds <= 0) {
-alert("Time's up!")
-return;
-}
-
-TotalSeconds -= 1;
-UpdateTimer()
-window.setTimeout("Tick()", 1000);
-}
- 
-//END NEW CODE
+$( "#black" ).click(function() {
+ $('.container').addClass('.display1');
+//alert( "Handler for .click() called." );
+});
 
 });
 
-function UpdateTimer() {
-var Seconds = TotalSeconds;
 
-var Minutes = Math.floor(Seconds / 60);
-Seconds -= Minutes * (60);
+//OTHER CODE
+// JavaScript Document
+/*
+$(document).ready(function() {
+    $("#calc").click(function(){
+        getTime();
+    });
+    var t= function getTime() {
+        var minutes, seconds, time;
+        minutes = (parseInt( $('#mNumber').val(), 10) || 0) * 60;
+        seconds = (parseInt( $('#sNumber').val(), 10) || 0);
+        time = minutes + seconds;
+        return time;
+    };
+	
+$('#timer').html(t);
 
+Tick(t);
 
-var TimeStr = ((Days > 0) ? Days + " days " : "") + LeadingZero(Minutes) + ":" + LeadingZero(Seconds)
-
-
-Timer.innerHTML = TimeStr;
+function Tick(t) {
+	if (t > 0) {
+		setTimeout(function () {
+			$('#timer').html(t);
+			t--;
+			Tick(t);
+		
+	); 1000}; 
+    } else {
+		//PlaySound("sound1");
+	}
 }
 
+});
 
-function LeadingZero(Time) {
+*/
 
-return (Time < 10) ? "0" + Time : + Time;
 
-}

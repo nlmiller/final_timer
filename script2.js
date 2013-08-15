@@ -6,109 +6,51 @@ $(document).ready(function() {
      event.preventDefault();
 	 $('.container').append(html);
 
-$( "#black" ).click(function() {
-alert( "Handler for .click() called." );
-});
-
-
-
- /*$("#black").click(function(){
-  $("body").addClass("display1");
- })*/
+ $("#calc").click(function(){
+        getTime();
 
 });
 
-/*$(".d1").on("click", function(){
-$( ".body" ).addClass( ".display1")
-});*/
 
+});
 	
 });
 
-$('#black').click(function(){
-        $(this).css('background-color', 'green')
-      })
 
-var time = 10;
+var time= 10;
 var minutes;
 var seconds;
-
-var html = time-- + '<br >';
-
-$('#timer').append(html); 
  		
-    
- function getTime() {
+/*    
+ function getTime()
+ {
         var minutes, seconds, time;
-        minutes = (parseInt( $('#mNumber').val(), 10) || 0) * 10000;
-        seconds = (parseInt( $('#sNumber').val(), 10) || 0) * 1000;
+        minutes = (parseInt( $('#mNumber').val(), 10)) * 10000;
+        seconds = (parseInt( $('#sNumber').val(), 10)) * 1000;
         time = minutes + seconds;
         document.getElementById("timer").innerHTML = time;
         return false;
-    }
-	
-
-var result = time--;
-$('.container').append(result);
-
-var count = 10;
-while (count>0) {
-    console.log(count);
-    count--;
-}
-
-/* 
-while (count < 100);
-for(var i= 0; i < time; --i) {
-        $('.container').append(i);
-		document.write(i);
-    }
+ }	
+*/
+Tick();
 
 
-while (time > 0 ) {
-console.log(x);
-x++;
-} */   
-    $('.container').append(html);  
-UpdateTimer() 
-window.setTimeout("Tick()", 1000);
-
+$('.container').append(time);
 
 function Tick() {
-Time -= 1;
-UpdateTimer()
-window.setTimeout("Tick()", 1000);
-$('.container').append(html);
+     if (time > 0) {
+	setTimeout(function ()
+	    {
+			$('.container').html(time);
+			time--;
+			Tick(time);
+		
+		},1000);
+    } else {
+		$('.container').html('time is up');
+        PlaySound("sound1");
+	}
 }
 
-function UpdateTimer() {
-$('.container').append(html);
-}
 
-//PLAYS SOUND WHEN TIME IS UP
-function Tick() {
-if (time <= 0) {
-PlaySound("sound1");
-//alert("Time's up!")
-return;
-}
-
-time -= 1;
-UpdateTimer()
-window.setTimeout("Tick()", 1000);
-}
-
-/*
-TO STOP SOUND
-function stopSound (){
-	document.mysound.stop();
-}
-
-$('.stop').on('click', function(){
-		//console.log('You just clicked #clickme!');
-		// do some other stuff here
-		stopSound("sound1");
-	return;
-	});
-	*/
 	
